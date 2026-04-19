@@ -35,7 +35,7 @@
 	<div class="timeline" bind:this={timelineEl}>
 		<div class="timeline-line" bind:this={lineEl} aria-hidden="true"></div>
 
-		{#each experience as job, i}
+		{#each experience as job, i (`${job.company}-${job.role}-${i}`)}
 			<div class="tl-item reveal delay-{(i % 3) + 1}">
 				<div class="tl-dot" aria-hidden="true"></div>
 				<div class="tl-card">
@@ -43,7 +43,7 @@
 					<div class="tl-role">{job.role}</div>
 					<div class="tl-company">{job.company}</div>
 					<ul class="tl-list">
-						{#each job.highlights as point}
+						{#each job.highlights as point (`${job.company}-${point}`)}
 							<li>{point}</li>
 						{/each}
 					</ul>

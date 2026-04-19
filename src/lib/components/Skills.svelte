@@ -9,11 +9,11 @@
 	</h2>
 
 	<div class="skills-grid">
-		{#each skills as group, i}
+		{#each skills as group, i (group.group)}
 			<div class="skill-group reveal delay-{(i % 3) + 1}">
 				<h3>{group.group}</h3>
 				<div class="skill-chips">
-					{#each group.items as [name]}
+					{#each group.items as [name] (name)}
 						<span class="skill-chip">{name}</span>
 					{/each}
 				</div>

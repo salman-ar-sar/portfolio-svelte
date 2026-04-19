@@ -10,9 +10,12 @@
 		const NODE_COUNT = 60;
 		const MAX_DIST = 140;
 
-		let W = 0, H = 0, dpr = 1;
+		let W = 0,
+			H = 0,
+			dpr = 1;
 		let nodes: { x: number; y: number; vx: number; vy: number; r: number }[] = [];
-		let mouseX = -1000, mouseY = -1000;
+		let mouseX = -1000,
+			mouseY = -1000;
 		let rafId: number;
 
 		const resize = () => {
@@ -36,7 +39,10 @@
 			}
 		};
 
-		const onResize = () => { resize(); initNodes(); };
+		const onResize = () => {
+			resize();
+			initNodes();
+		};
 		const onMouseMove = (e: MouseEvent) => {
 			mouseX = e.clientX * dpr;
 			mouseY = e.clientY * dpr;
@@ -51,7 +57,8 @@
 			ctx.clearRect(0, 0, W, H);
 
 			for (const n of nodes) {
-				n.x += n.vx; n.y += n.vy;
+				n.x += n.vx;
+				n.y += n.vy;
 				if (n.x < 0 || n.x > W) n.vx *= -1;
 				if (n.y < 0 || n.y > H) n.vy *= -1;
 			}
@@ -59,8 +66,10 @@
 			const md = MAX_DIST * dpr;
 			for (let i = 0; i < nodes.length; i++) {
 				for (let j = i + 1; j < nodes.length; j++) {
-					const a = nodes[i], b = nodes[j];
-					const dx = a.x - b.x, dy = a.y - b.y;
+					const a = nodes[i],
+						b = nodes[j];
+					const dx = a.x - b.x,
+						dy = a.y - b.y;
 					const d = Math.sqrt(dx * dx + dy * dy);
 					if (d < md) {
 						const alpha = (1 - d / md) * 0.35;
@@ -73,7 +82,8 @@
 					}
 				}
 				const a = nodes[i];
-				const mdx = a.x - mouseX, mdy = a.y - mouseY;
+				const mdx = a.x - mouseX,
+					mdy = a.y - mouseY;
 				const md2 = Math.sqrt(mdx * mdx + mdy * mdy);
 				const mRange = 180 * dpr;
 				if (md2 < mRange) {

@@ -40,7 +40,10 @@
 
 <svelte:head>
 	<title>Salman's Portfolio</title>
-	<meta name="description" content="Senior Full Stack Engineer specialising in React Native, TypeScript, Next.js and Spring Boot." />
+	<meta
+		name="description"
+		content="Senior Full Stack Engineer specialising in React Native, TypeScript, Next.js and Spring Boot."
+	/>
 </svelte:head>
 
 <ParticleCanvas />

@@ -11,9 +11,9 @@
 	<div class="edu-card reveal delay-2">
 		<div class="edu-sigil" aria-hidden="true">
 			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-				<path d="M12 2L2 8l10 6 10-6-10-6z"/>
-				<path d="M2 16l10 6 10-6"/>
-				<path d="M2 12l10 6 10-6"/>
+				<path d="M12 2L2 8l10 6 10-6-10-6z" />
+				<path d="M2 16l10 6 10-6" />
+				<path d="M2 12l10 6 10-6" />
 			</svg>
 		</div>
 		<div>
@@ -26,7 +26,9 @@
 			</div>
 		</div>
 		<div class="edu-cgpa">
-			<div class="num">{education.cgpa}<span style="color: var(--text-muted); font-size: 16px;">/10</span></div>
+			<div class="num">
+				{education.cgpa}<span style="color: var(--text-muted); font-size: 16px;">/10</span>
+			</div>
 			<div class="lbl">CGPA</div>
 		</div>
 	</div>

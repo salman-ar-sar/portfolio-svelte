@@ -8,14 +8,23 @@
 
 	const sections = ['about', 'experience', 'projects', 'skills', 'education', 'contact'];
 	const shortcutMap: Record<string, string> = {
-		a: 'about', e: 'experience', p: 'projects',
-		s: 'skills', d: 'education', c: 'contact', h: 'hero'
+		a: 'about',
+		e: 'experience',
+		p: 'projects',
+		s: 'skills',
+		d: 'education',
+		c: 'contact',
+		h: 'hero'
 	};
 
-	function close() { isOpen = false; }
+	function close() {
+		isOpen = false;
+	}
 
 	onMount(() => {
-		const onScroll = () => { isScrolled = window.scrollY > 20; };
+		const onScroll = () => {
+			isScrolled = window.scrollY > 20;
+		};
 		window.addEventListener('scroll', onScroll, { passive: true });
 		onScroll();
 
@@ -26,7 +35,10 @@
 			const id = shortcutMap[ev.key.toLowerCase()];
 			if (!id) return;
 			const el = document.getElementById(id);
-			if (el) { ev.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+			if (el) {
+				ev.preventDefault();
+				el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			}
 		};
 		document.addEventListener('keydown', onKey);
 
@@ -36,11 +48,14 @@
 			if (href) navMap[href.slice(1)] = a;
 		});
 
-		const sectionObs = new IntersectionObserver((entries) => {
-			entries.forEach((e) => {
-				if (e.isIntersecting) activeSection = e.target.id;
-			});
-		}, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+		const sectionObs = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((e) => {
+					if (e.isIntersecting) activeSection = e.target.id;
+				});
+			},
+			{ rootMargin: '-45% 0px -50% 0px', threshold: 0 }
+		);
 
 		sections.forEach((id) => {
 			const el = document.getElementById(id);
@@ -70,21 +85,9 @@
 	</a>
 
 	<ul class="nav-links" class:open={isOpen} id="nav-links">
-		{#each [
-			{ href: 'about',      num: '01.', label: 'about',      kbd: 'a' },
-			{ href: 'experience', num: '02.', label: 'experience',  kbd: 'e' },
-			{ href: 'projects',   num: '03.', label: 'projects',    kbd: 'p' },
-			{ href: 'skills',     num: '04.', label: 'skills',      kbd: 's' },
-			{ href: 'education',  num: '05.', label: 'education',   kbd: 'd' },
-			{ href: 'contact',    num: '06.', label: 'contact',     kbd: 'c' },
-		] as item}
+		{#each [{ href: 'about', num: '01.', label: 'about', kbd: 'a' }, { href: 'experience', num: '02.', label: 'experience', kbd: 'e' }, { href: 'projects', num: '03.', label: 'projects', kbd: 'p' }, { href: 'skills', num: '04.', label: 'skills', kbd: 's' }, { href: 'education', num: '05.', label: 'education', kbd: 'd' }, { href: 'contact', num: '06.', label: 'contact', kbd: 'c' }] as item (item.href)}
 			<li>
-				<a
-					href="#{item.href}"
-					data-nav
-					class:active={activeSection === item.href}
-					onclick={close}
-				>
+				<a href="#{item.href}" data-nav class:active={activeSection === item.href} onclick={close}>
 					<span class="n">{item.num}</span>{item.label}<kbd class="k">{item.kbd}</kbd>
 				</a>
 			</li>

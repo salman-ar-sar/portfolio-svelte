@@ -7,11 +7,15 @@
 	onMount(() => {
 		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-		let tx = 0, ty = 0, cx = 0, cy = 0;
+		let tx = 0,
+			ty = 0,
+			cx = 0,
+			cy = 0;
 		let rafId: number;
 
 		const onMove = (e: MouseEvent) => {
-			tx = e.clientX; ty = e.clientY;
+			tx = e.clientX;
+			ty = e.clientY;
 			dot.style.transform = `translate(${tx}px, ${ty}px) translate(-50%, -50%)`;
 		};
 

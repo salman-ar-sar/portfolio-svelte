@@ -7,30 +7,35 @@
 	onMount(() => {
 		const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-		const countObs = new IntersectionObserver((entries) => {
-			entries.forEach((e) => {
-				if (!e.isIntersecting) return;
-				const el = e.target as HTMLElement;
-				const target = parseInt(el.dataset.count ?? '0', 10);
-				const suffix = el.dataset.suffix ?? '';
-				if (reduced) {
-					el.textContent = target + suffix;
-				} else {
-					const duration = 1200;
-					const start = performance.now();
-					const step = (now: number) => {
-						const t = Math.min(1, (now - start) / duration);
-						const eased = 1 - Math.pow(1 - t, 3);
-						el.textContent = Math.round(target * eased) + suffix;
-						if (t < 1) requestAnimationFrame(step);
-					};
-					requestAnimationFrame(step);
-				}
-				countObs.unobserve(el);
-			});
-		}, { threshold: 0.4 });
+		const countObs = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((e) => {
+					if (!e.isIntersecting) return;
+					const el = e.target as HTMLElement;
+					const target = parseInt(el.dataset.count ?? '0', 10);
+					const suffix = el.dataset.suffix ?? '';
+					if (reduced) {
+						el.textContent = target + suffix;
+					} else {
+						const duration = 1200;
+						const start = performance.now();
+						const step = (now: number) => {
+							const t = Math.min(1, (now - start) / duration);
+							const eased = 1 - Math.pow(1 - t, 3);
+							el.textContent = Math.round(target * eased) + suffix;
+							if (t < 1) requestAnimationFrame(step);
+						};
+						requestAnimationFrame(step);
+					}
+					countObs.unobserve(el);
+				});
+			},
+			{ threshold: 0.4 }
+		);
 
-		statEls.forEach((el) => { if (el) countObs.observe(el); });
+		statEls.forEach((el) => {
+			if (el) countObs.observe(el);
+		});
 
 		return () => countObs.disconnect();
 	});
@@ -46,9 +51,8 @@
 		<div class="about-text reveal delay-2">
 			<p>
 				I'm a <span class="highlight">Senior Software Development Engineer</span> at Hatio Innovation,
-				where I lead two concurrent product teams shipping React Native and web experiences. I care
-				about tight feedback loops, clean architecture, and the kind of polish that makes interfaces
-				feel alive.
+				where I lead two concurrent product teams shipping React Native and web experiences. I care about
+				tight feedback loops, clean architecture, and the kind of polish that makes interfaces feel alive.
 			</p>
 			<p>
 				Most of my last four years have been spent in the messy middle of product work — greenfield
@@ -58,14 +62,16 @@
 		</div>
 
 		<div class="stat-grid reveal delay-3">
-			{#each stats as stat, i}
+			{#each stats as stat, i (stat.label)}
 				<div class="stat">
 					<div
 						class="stat-num"
 						data-count={stat.value}
 						data-suffix={stat.suffix}
 						bind:this={statEls[i]}
-					>0{stat.suffix}</div>
+					>
+						0{stat.suffix}
+					</div>
 					<div class="stat-label">{stat.label}</div>
 				</div>
 			{/each}
@@ -74,9 +80,9 @@
 
 	<div class="ticker-wrap reveal delay-3" aria-hidden="true">
 		<div class="ticker-track">
-			{#each [0, 1] as _}
+			{#each [0, 1] as copy (copy)}
 				<span>
-					{#each tickerTech as tech, i}
+					{#each tickerTech as tech, i (`${copy}-${tech}`)}
 						<b>{tech}</b>{#if i < tickerTech.length - 1}<span class="sep">◆</span>{/if}
 					{/each}
 				</span>

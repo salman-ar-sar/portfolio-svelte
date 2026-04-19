@@ -11,8 +11,8 @@
 				const r = card.getBoundingClientRect();
 				const x = e.clientX - r.left;
 				const y = e.clientY - r.top;
-				const rx = ((y / r.height) - 0.5) * -6;
-				const ry = ((x / r.width) - 0.5) * 6;
+				const rx = (y / r.height - 0.5) * -6;
+				const ry = (x / r.width - 0.5) * 6;
 				card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(0)`;
 				card.style.setProperty('--mx', x + 'px');
 				card.style.setProperty('--my', y + 'px');
@@ -31,7 +31,7 @@
 	</h2>
 
 	<div class="proj-grid">
-		{#each projects as project, i}
+		{#each projects as project, i (`${project.name}-${i}`)}
 			<article class="proj reveal delay-{(i % 3) + 1}" data-tilt>
 				<div class="proj-head">
 					<div class="proj-icon">{project.icon}</div>
@@ -39,12 +39,12 @@
 				</div>
 				<h3 class="proj-name">{project.name}</h3>
 				<div class="proj-chips">
-					{#each project.stack as tech}
+					{#each project.stack as tech (`${project.name}-${tech}`)}
 						<span class="chip">{tech}</span>
 					{/each}
 				</div>
 				<ul class="proj-list">
-					{#each project.points as point}
+					{#each project.points as point (`${project.name}-${point}`)}
 						<li>{point}</li>
 					{/each}
 				</ul>
