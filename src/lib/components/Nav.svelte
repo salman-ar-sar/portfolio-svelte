@@ -63,7 +63,7 @@
 	onclick={close}
 ></div>
 
-<nav class="topnav" class:scrolled={isScrolled} aria-label="Primary">
+<nav class="topnav" class:open={isOpen} class:scrolled={isScrolled} aria-label="Primary">
 	<a href="#hero" class="brand" aria-label="{person.name} home">
 		<span class="brand-dot" aria-hidden="true"></span>
 		<span>salman<span style="color: var(--primary)">.</span>dev</span>
