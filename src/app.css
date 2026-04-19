@@ -45,7 +45,8 @@ body {
 	body {
 		cursor: auto;
 	}
-	.cursor-glow {
+	.cursor-glow,
+	.cursor-dot {
 		display: none;
 	}
 }
