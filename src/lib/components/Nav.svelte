@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { person, resumeFilename, resumeUrl } from '$lib/data';
+	import { person, RESUME_FILENAME, RESUME_URL } from '$lib/data';
 
 	let isScrolled = $state(false);
 	let isOpen = $state(false);
@@ -94,7 +94,7 @@
 		{/each}
 	</ul>
 
-	<a href={resumeUrl} class="resume-btn" aria-label="Download resume" download={resumeFilename}>
+	<a href={RESUME_URL} class="resume-btn" aria-label="Download resume" download={RESUME_FILENAME}>
 		resume.pdf ↓
 	</a>
 

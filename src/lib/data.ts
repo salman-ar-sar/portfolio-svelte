@@ -1,28 +1,23 @@
 import resumeFile from '$lib/assets/SalmanAmbalamCheri_Resume.pdf';
 
-function getFilenameFromUrl(url: string) {
-	const [pathname] = url.split(/[?#]/, 1);
-	const filename = pathname.split('/').pop();
-	return filename ? decodeURIComponent(filename) : 'resume.pdf';
-}
-
 export const person = {
 	name: 'Salman A',
 	title: 'Senior Full Stack Engineer',
 	location: 'Kochi, Kerala · IN',
-	email: 'hello@salman.dev',
-	github: '#',
-	linkedin: '#'
+	email: 'salman.a.mec@gmail.com',
+	github: 'https://github.com/salman-ar-sar',
+	linkedin: 'https://www.linkedin.com/in/salman-ar/'
 } as const;
 
-export const resumeUrl = resumeFile;
-export const resumeFilename = getFilenameFromUrl(resumeUrl);
+export const RESUME_URL = resumeFile;
+export const RESUME_FILENAME = 'SalmanAmbalamCheri_Resume.pdf';
 
 export const typingPhrases = [
 	'Senior Full Stack Engineer',
 	'React Native Developer',
 	'Frontend Architect',
-	'TypeScript Enthusiast'
+	'TypeScript Enthusiast',
+	'Git Expert'
 ];
 
 export const tickerTech = [
@@ -47,6 +42,7 @@ export const tickerTech = [
 	'Python',
 	'Docker',
 	'GitHub Actions',
+	'GitLab CI',
 	'Jest',
 	'Expo',
 	'ElysiaJS'
@@ -60,7 +56,7 @@ export interface Stat {
 
 export const stats: Stat[] = [
 	{ value: 4, suffix: '+', label: 'years\nexperience' },
-	{ value: 2, suffix: '', label: 'production\napps shipped' },
+	{ value: 3, suffix: '', label: 'production\napps shipped' },
 	{ value: 10, suffix: '+', label: 'technologies\nin active use' }
 ];
 
@@ -74,16 +70,16 @@ export interface ExperienceEntry {
 export const experience: ExperienceEntry[] = [
 	{
 		period: 'JUL 2021 — PRESENT · ~5 YRS',
-		role: 'Software Development Engineer',
+		role: 'Software Development Engineer - 2',
 		company: 'Hatio Innovation Pvt Ltd',
 		highlights: [
-			'Tech Lead for 2 concurrent product teams, shipping to production every cycle',
-			'Owned the full lifecycle of a greenfield React Native app (iOS + Android)',
-			'Set up Fastlane + CodePush pipelines for automated OTA releases',
-			'Migrated a legacy Angular admin portal to React and redesigned the UX end-to-end',
-			'Re-architected the theme provider to support Dark Mode and a full visual redesign',
-			'Built REST APIs with Spring Boot in Java and Kotlin',
-			'Led the engineering-graduate training program for new hires'
+			'Owned and scaled a production-grade BBPS bill payment backend processing 1M+ daily transactions',
+			'Owned the lifecycle of a greenfield React Native app (iOS/Android); set up Fastlane and CodePush to automate releases',
+			'Integrated JavaScript SDKs, RESTful APIs, and WebSocket-based real-time services',
+			'Implemented native module bridges using Kotlin (Android) and Objective-C (iOS) for platform-specific features',
+			'Acted as Tech Lead for two concurrent product teams, guiding both projects to simultaneous production launches',
+			'Created and led a training program for fresh engineering graduates on React best practices',
+			'Migrated the core admin portal from Angular to React, redesigning the UX'
 		]
 	}
 ];
@@ -146,6 +142,7 @@ export const skills: SkillGroup[] = [
 			['React Native', 95],
 			['Expo', 88],
 			['Reanimated', 82],
+			['Native Modules', 80],
 			['Fastlane', 85],
 			['CodePush', 88]
 		]
@@ -167,7 +164,8 @@ export const skills: SkillGroup[] = [
 		items: [
 			['React', 95],
 			['Next.js', 90],
-			['Redux / Zustand', 88],
+			['Redux Toolkit', 88],
+			['Zustand', 85],
 			['Tailwind CSS', 92],
 			['Accessibility', 82]
 		]
