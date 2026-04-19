@@ -39,7 +39,7 @@
 </script>
 
 <svelte:head>
-	<title>Salman A — Senior Full Stack Engineer</title>
+	<title>Salman's Portfolio</title>
 	<meta name="description" content="Senior Full Stack Engineer specialising in React Native, TypeScript, Next.js and Spring Boot." />
 </svelte:head>
 
