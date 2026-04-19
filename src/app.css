@@ -133,9 +133,7 @@ nav.topnav {
 	border-bottom: 1px solid transparent;
 }
 nav.topnav.scrolled {
-	background: rgba(10, 10, 15, 0.65);
-	backdrop-filter: blur(14px) saturate(140%);
-	-webkit-backdrop-filter: blur(14px) saturate(140%);
+	background: rgba(10, 10, 15, 0.82);
 	border-bottom: 1px solid var(--border);
 }
 .brand {
@@ -268,9 +266,7 @@ nav.topnav.scrolled {
 .nav-backdrop {
 	position: fixed;
 	inset: var(--nav-h) 0 0 0;
-	background: rgba(10, 10, 15, 0.55);
-	backdrop-filter: blur(16px) saturate(140%);
-	-webkit-backdrop-filter: blur(16px) saturate(140%);
+	background: rgba(10, 10, 15, 0.78);
 	z-index: 98;
 	opacity: 0;
 	pointer-events: none;
@@ -304,7 +300,6 @@ nav.topnav.scrolled {
 		left: 0;
 		right: 0;
 		background: rgba(10, 10, 15, 0.85);
-		backdrop-filter: blur(20px);
 		flex-direction: column;
 		align-items: flex-start;
 		gap: 0;
@@ -329,6 +324,34 @@ nav.topnav.scrolled {
 	}
 	.nav-links li:last-child a {
 		border-bottom: none;
+	}
+}
+
+@supports ((backdrop-filter: blur(14px)) or (-webkit-backdrop-filter: blur(14px))) {
+	nav.topnav.scrolled {
+		background: rgba(10, 10, 15, 0.65);
+		-webkit-backdrop-filter: blur(14px) saturate(140%);
+		backdrop-filter: blur(14px) saturate(140%);
+	}
+
+	.nav-backdrop {
+		background: rgba(10, 10, 15, 0.55);
+		-webkit-backdrop-filter: blur(16px) saturate(140%);
+		backdrop-filter: blur(16px) saturate(140%);
+	}
+
+	@media (max-width: 780px) {
+		nav.topnav.open {
+			background: rgba(10, 10, 15, 0.74);
+			-webkit-backdrop-filter: blur(14px) saturate(140%);
+			backdrop-filter: blur(14px) saturate(140%);
+		}
+
+		.nav-links {
+			background: rgba(10, 10, 15, 0.72);
+			-webkit-backdrop-filter: blur(20px) saturate(140%);
+			backdrop-filter: blur(20px) saturate(140%);
+		}
 	}
 }
 
