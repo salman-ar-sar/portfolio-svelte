@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { person } from '$lib/data';
+	import { person, resumeFilename, resumeUrl } from '$lib/data';
 
 	let isScrolled = $state(false);
 	let isOpen = $state(false);
@@ -91,13 +91,15 @@
 		{/each}
 	</ul>
 
-	<a href="#" class="resume-btn" aria-label="Download resume">resume.pdf ↓</a>
+	<a href={resumeUrl} class="resume-btn" aria-label="Download resume" download={resumeFilename}>
+		resume.pdf ↓
+	</a>
 
 	<button
 		class="hamburger"
 		class:open={isOpen}
 		aria-label="Toggle navigation menu"
-		aria-expanded={String(isOpen)}
+		aria-expanded={isOpen}
 		onclick={() => (isOpen = !isOpen)}
 	>
 		<span></span><span></span><span></span>

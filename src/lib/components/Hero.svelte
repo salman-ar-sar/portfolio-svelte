@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { typingPhrases } from '$lib/data';
+	import { resumeFilename, resumeUrl, typingPhrases } from '$lib/data';
 
 	let typedText = $state('');
 
@@ -75,7 +75,7 @@
 					<path d="M5 12h14M13 5l7 7-7 7"/>
 				</svg>
 			</a>
-			<a href="#" class="btn btn-ghost">
+			<a href={resumeUrl} class="btn btn-ghost" download={resumeFilename}>
 				<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 					<path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/>
 				</svg>

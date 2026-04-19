@@ -1,3 +1,11 @@
+import resumeFile from '$lib/assets/SalmanAmbalamCheri_Resume.pdf';
+
+function getFilenameFromUrl(url: string) {
+	const [pathname] = url.split(/[?#]/, 1);
+	const filename = pathname.split('/').pop();
+	return filename ? decodeURIComponent(filename) : 'resume.pdf';
+}
+
 export const person = {
 	name: 'Salman A',
 	title: 'Senior Full Stack Engineer',
@@ -6,6 +14,9 @@ export const person = {
 	github: '#',
 	linkedin: '#'
 } as const;
+
+export const resumeUrl = resumeFile;
+export const resumeFilename = getFilenameFromUrl(resumeUrl);
 
 export const typingPhrases = [
 	'Senior Full Stack Engineer',
