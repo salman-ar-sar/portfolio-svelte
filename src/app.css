@@ -21,7 +21,7 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; scroll-padding-top: var(--nav-h); }
+html { scroll-behavior: smooth; scroll-padding-top: var(--nav-h); overflow-x: clip; }
 
 body {
   font-family: var(--sans);
@@ -291,6 +291,7 @@ section {
   padding-top: calc(var(--nav-h) + 40px);
   padding-bottom: 80px;
 }
+.hero-copy { min-width: 0; }
 .hero-tag {
   font-family: var(--mono);
   font-size: 14px;
@@ -332,6 +333,8 @@ section {
   color: var(--text);
   min-height: 1.4em;
   margin-bottom: 12px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .hero-typed .prompt { color: var(--primary); }
 .hero-typed .typed { color: var(--text); }
