@@ -9,7 +9,7 @@
 	</h2>
 	<p class="contact-sub reveal delay-2">
 		Open to senior full-stack and React Native roles, freelance work, and interesting
-		collaborations. Response time is usually under a day.
+		collaborations. I typically respond within 24 hours.
 	</p>
 
 	<div class="contact-actions reveal delay-3">

@@ -51,13 +51,13 @@
 		<div class="about-text reveal delay-2">
 			<p>
 				I'm a <span class="highlight">Senior Software Development Engineer</span> at Hatio Innovation,
-				where I lead two concurrent product teams shipping React Native and web experiences. I care about
-				tight feedback loops, clean architecture, and the kind of polish that makes interfaces feel alive.
+				where I currently lead the BBPS bill payment backend platform processing 1M+ daily transactions.
+				I focus on reliability, performance, and clean architecture in high-throughput systems.
 			</p>
 			<p>
-				Most of my last four years have been spent in the messy middle of product work — greenfield
-				apps, legacy migrations, Fastlane pipelines, theme rewrites, REST layers in Spring Boot —
-				anything that gets a working thing into users' hands faster.
+				Over the past four years, I've worked across the full product lifecycle — from greenfield
+				builds and legacy migrations to Fastlane release pipelines, theme overhauls, and Spring Boot
+				REST services — delivering production-ready features with speed and quality.
 			</p>
 		</div>
 
